@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="720" maxWidth="1280" minHeight="720" minWidth="1280" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <right>
+    </right>
+    <center>
+        <ImageView fitHeight="650.0" fitWidth="650.0">
+            <image>
+                <Image url="@/village.png" />
+            </image>
+        </ImageView>
+    </center>
+    <left>
+    </left>
+    <bottom>
+    </bottom>
+   <top>
+      <HBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: pink;">
+          <ImageView fitHeight="50.0" fitWidth="50.0">
+              <image>
+                  <Image url="@/logs.png" />
+              </image>
+            <HBox.margin>
+               <Insets left="350.0" />
+            </HBox.margin>
+          </ImageView>
+         <Label text="Label">
+            <padding>
+               <Insets top="15.0" />
+            </padding>
+         </Label>
+          <ImageView fitHeight="50.0" fitWidth="50.0">
+              <image>
+                  <Image url="@/wheat.png" />
+              </image>
+            <HBox.margin>
+               <Insets left="150.0" />
+            </HBox.margin>
+          </ImageView>
+         <Label text="Label">
+            <padding>
+               <Insets top="15.0" />
+            </padding>
+         </Label>
+          <ImageView fitHeight="50.0" fitWidth="50.0">
+              <image>
+                  <Image url="@/bricks.png" />
+              </image>
+            <HBox.margin>
+               <Insets left="150.0" />
+            </HBox.margin>
+          </ImageView>
+         <Label text="Label">
+            <padding>
+               <Insets top="15.0" />
+            </padding>
+         </Label>
+      </HBox>
+   </top>
+</BorderPane>
