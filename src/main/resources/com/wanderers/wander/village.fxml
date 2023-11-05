@@ -10,72 +10,85 @@
     <right>
     </right>
     <center>
-        <ImageView fitHeight="650.0" fitWidth="650.0">
-            <image>
-                <Image url="@/village.png" />
-            </image>
-        </ImageView>
+        <StackPane>
+            <ImageView fitHeight="650.0" fitWidth="650.0">
+                <image>
+                    <Image url="@/village.png" />
+                </image>
+            </ImageView>
+         <Button focusTraversable="false" prefHeight="43.0" prefWidth="52.0" text="1" translateX="-108.0" translateY="-110.0" />
+         <Button focusTraversable="false" prefHeight="47.0" prefWidth="46.0" text="2" translateX="-10.0" translateY="-145.0" />
+         <Button focusTraversable="false" prefHeight="52.0" prefWidth="57.0" text="5" translateX="5.0" translateY="50.0" />
+         <Button focusTraversable="false" prefHeight="42.0" prefWidth="47.0" text="4" translateX="83.0" translateY="8.0" />
+         <Button focusTraversable="false" prefHeight="49.0" prefWidth="56.0" text="6" translateX="-80.0" translateY="30.0" />
+         <Button focusTraversable="false" prefHeight="51.0" prefWidth="50.0" text="3" translateX="80.0" translateY="-115.0" />
+         <Button focusTraversable="false" prefHeight="42.0" prefWidth="46.0" text="7" translateX="182.0" translateY="28.0" />
+            
+        </StackPane>
     </center>
     <left>
     </left>
     <bottom>
     </bottom>
-   <top>
-      <HBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: pink;">
-          <ImageView fitHeight="50.0" fitWidth="50.0">
-              <image>
-                  <Image url="@/logs.png" />
-              </image>
-            <HBox.margin>
-               <Insets left="350.0" />
-            </HBox.margin>
-          </ImageView>
-         <Label fx:id="logsCounter" contentDisplay="CENTER" text="0">
-            <padding>
-               <Insets left="8.0" top="15.0" />
-            </padding>
-            <font>
-               <Font name="Georgia" size="24.0" />
-            </font>
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-         </Label>
-          <ImageView fitHeight="50.0" fitWidth="50.0">
-              <image>
-                  <Image url="@/wheat.png" />
-              </image>
-            <HBox.margin>
-               <Insets left="150.0" />
-            </HBox.margin>
-          </ImageView>
-         <Label fx:id="foodCounter" text="0">
-            <padding>
-               <Insets left="8.0" top="15.0" />
-            </padding>
-            <font>
-               <Font name="Georgia" size="24.0" />
-            </font>
-         </Label>
-          <ImageView fitHeight="50.0" fitWidth="50.0">
-              <image>
-                  <Image url="@/bricks.png" />
-              </image>
-            <HBox.margin>
-               <Insets left="150.0" />
-            </HBox.margin>
-          </ImageView>
-         <Label fx:id="brickCounter" text="0">
-            <padding>
-               <Insets left="8.0" top="15.0" />
-            </padding>
-            <font>
-               <Font name="Georgia" size="24.0" />
-            </font>
-         </Label>
-      </HBox>
-   </top>
+    <top>
+        <HBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: pink;" >
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+                <image>
+                    <Image url="@/logs.png" />
+                </image>
+                <HBox.margin>
+                    <Insets left="350.0" />
+                </HBox.margin>
+            </ImageView>
+            <Label fx:id="logsCounter" contentDisplay="CENTER" text="0">
+                <padding>
+                    <Insets left="5.0" top="15.0" />
+                </padding>
+                <font>
+                    <Font name="Georgia" size="24.0" />
+                </font>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+                <image>
+                    <Image url="@/wheat.png" />
+                </image>
+                <HBox.margin>
+                    <Insets left="150.0" />
+                </HBox.margin>
+            </ImageView>
+            <Label fx:id="foodCounter" text="0">
+                <padding>
+                    <Insets left="5.0" top="15.0" />
+                </padding>
+                <font>
+                    <Font name="Georgia" size="24.0" />
+                </font>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0">
+                <image>
+                    <Image url="@/bricks.png" />
+                </image>
+                <HBox.margin>
+                    <Insets left="150.0" />
+                </HBox.margin>
+            </ImageView>
+            <Label fx:id="brickCounter" text="0">
+                <padding>
+                    <Insets left="5.0" top="15.0" />
+                </padding>
+                <font>
+                    <Font name="Georgia" size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+    </top>
 </BorderPane>
