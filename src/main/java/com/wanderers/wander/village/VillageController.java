@@ -38,7 +38,8 @@ public class VillageController {
     private void updateLabel() {
         int number = Integer.parseInt(String.valueOf(logsCounter.getText()));
         logsCounter.setText(String.valueOf((1 + number)));
-        System.out.println(i);
+        foodCounter.setText(String.valueOf((1 + number)));
+        brickCounter.setText(String.valueOf((1 + number)));
 
     }
 }
