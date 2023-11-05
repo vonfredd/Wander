@@ -16,6 +16,7 @@
                     <Image url="@/village.png" />
                 </image>
             </ImageView>
+
          <Button focusTraversable="false" prefHeight="43.0" prefWidth="52.0" text="1" translateX="-108.0" translateY="-110.0" />
          <Button focusTraversable="false" prefHeight="47.0" prefWidth="46.0" text="2" translateX="-10.0" translateY="-145.0" />
          <Button focusTraversable="false" prefHeight="52.0" prefWidth="57.0" text="5" translateX="5.0" translateY="50.0" />
