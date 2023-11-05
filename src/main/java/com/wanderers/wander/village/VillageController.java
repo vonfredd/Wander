@@ -15,13 +15,19 @@ public class VillageController {
 
     @FXML
     private Label logsCounter;
+    @FXML
+    private Label foodCounter;
+    @FXML
+    private Label brickCounter;
 
     public int i = 2;
 
     VillageModel model = new VillageModel();
 
     public void initialize() {
-        // Create a Timeline in the controller's initialize method
+
+
+
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> updateLabel())
         );
@@ -33,5 +39,6 @@ public class VillageController {
         int number = Integer.parseInt(String.valueOf(logsCounter.getText()));
         logsCounter.setText(String.valueOf((1 + number)));
         System.out.println(i);
+
     }
 }

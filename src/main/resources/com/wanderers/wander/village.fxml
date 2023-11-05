@@ -42,7 +42,7 @@
                <Insets left="150.0" />
             </HBox.margin>
           </ImageView>
-         <Label text="Label">
+         <Label fx:id="foodCounter" text="0">
             <padding>
                <Insets top="15.0" />
             </padding>
@@ -55,7 +55,7 @@
                <Insets left="150.0" />
             </HBox.margin>
           </ImageView>
-         <Label text="Label">
+         <Label fx:id="brickCounter" text="0">
             <padding>
                <Insets top="15.0" />
             </padding>
