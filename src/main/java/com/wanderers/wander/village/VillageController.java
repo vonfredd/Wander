@@ -3,11 +3,20 @@ package com.wanderers.wander.village;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
 public class VillageController {
 
+    public Button siteOne;
+    public Button siteTwo;
+    public Button siteThree;
+    public Button siteFour;
+    public Button siteFive;
+    public Button siteSix;
+    public Button siteSeven;
     @FXML
     private Label logsCounter;
     @FXML
@@ -34,9 +43,13 @@ public class VillageController {
 
     }
 
+
     /*När man trycker på en byggplatsknapp, skall man få möjlighet att bygga olika byggnader.
         en lista skall ges på vad man kan bygga och vad det kostar att bygga.
-
      */
+
+    public void buildingSites(MouseEvent event){
+
+    }
 
 }
