@@ -8,7 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class VillageController {
 
@@ -32,18 +36,33 @@ public class VillageController {
     private ImageView woodcutterImage;
     @FXML
     private ImageView barrackImage;
-
+    @FXML
+    private GridPane buildingChoice;
     VillageModel model = new VillageModel();
 
+    List<Button> buildingSite;
+
     public void initialize() {
-        Tooltip tooltip = new Tooltip("This cost 100 brick and 20 food" );
-        Tooltip.install(farmhouseImage,tooltip);
+        Tooltip tooltip = new Tooltip("This cost 100 brick and 20 food");
+        Tooltip.install(farmhouseImage, tooltip);
+        buildingSite = new ArrayList<>();
+        buildingSite.add(siteOne);
+        buildingSite.add(siteTwo);
+        buildingSite.add(siteThree);
+        buildingSite.add(siteFour);
+        buildingSite.add(siteFive);
+        buildingSite.add(siteSix);
+        buildingSite.add(siteSeven);
 
 
         logsCounter.textProperty().bind(model.logsTextCounterProperty());
         foodCounter.textProperty().bind(model.foodTextCounterProperty());
         brickCounter.textProperty().bind(model.brickTextCounterProperty());
 
+        startingTheTimeline();
+    }
+
+    private void startingTheTimeline() {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> updateLabel())
         );
@@ -63,16 +82,28 @@ public class VillageController {
         en lista skall ges på vad man kan bygga och vad det kostar att bygga.
      */
 
-    public void buildingSites(MouseEvent event){
+    public void buildingSites(MouseEvent event) {
 
     }
 
-    public void entered(MouseEvent event) {
-        if(event.getSource().equals(farmhouseImage))
+    public void mouseAction(MouseEvent event) {
+        var thingThatWasPressed = event.getSource();
+        if (thingThatWasPressed.equals(farmhouseImage))
             System.out.println("FARMEN JAO");
-        if(event.getSource().equals(barrackImage))
+        if (thingThatWasPressed.equals(barrackImage))
             System.out.println("BARRACK JAO");
-        if(event.getSource().equals(woodcutterImage))
+        if (thingThatWasPressed.equals(woodcutterImage))
             System.out.println("VEDHUGG JAO");
+
+        if (buildingSite.contains(thingThatWasPressed)) {
+            for (Button b : buildingSite) {
+                if (b.equals(thingThatWasPressed))
+                    if (buildingChoice.isVisible()) {
+                        buildingChoice.setVisible(false);
+                    } else
+                        buildingChoice.setVisible(true);
+            }
+        }
     }
+
 }

@@ -1,0 +1,19 @@
+.buildingIconHolder {
+    -fx-background-color: lightGrey;
+    -fx-pref-height: 100;
+    -fx-pref-width: 80;
+    -fx-border-style: solid;
+    -fx-border-width: 2; /* specify the width of the border */
+    -fx-border-color: black; /* specify the color of the border */
+}
+
+.buildingCost{
+ -fx-padding: 0 0 0 15px;
+ -fx-font-weight: bold;
+}
+
+.buildSiteButtons{
+ -fx-pref-height: 42;
+ -fx-pref-width: 46;
+}
+
