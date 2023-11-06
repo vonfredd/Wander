@@ -1,13 +1,13 @@
 package com.wanderers.wander.buildings;
 
-public class Barrack extends Building{
+public class Castle extends Building{
 
-    Barrack(String type){
+    Castle(String type){
         name = type;
     }
 
     @Override
     public int hp() {
-        return 10;
+        return 1000;
     }
 }
