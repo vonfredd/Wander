@@ -3,8 +3,8 @@
     -fx-pref-height: 100;
     -fx-pref-width: 80;
     -fx-border-style: solid;
-    -fx-border-width: 2; /* specify the width of the border */
-    -fx-border-color: black; /* specify the color of the border */
+    -fx-border-width: 2;
+    -fx-border-color: black;
 }
 
 .buildingCost{
