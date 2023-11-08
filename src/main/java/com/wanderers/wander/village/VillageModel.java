@@ -16,7 +16,7 @@ public class VillageModel {
     private final SimpleStringProperty logsTextCounter = new SimpleStringProperty();
     private final SimpleStringProperty foodTextCounter = new SimpleStringProperty();
     private final SimpleStringProperty brickTextCounter = new SimpleStringProperty();
-    private List<Building> buildings = new ArrayList<>();
+    private final List<Building> buildings = new ArrayList<>();
     private ObservableList<EconomicalBuildings> economicalBuildings;
 
     public void initializeEcoBuildings() {
@@ -30,22 +30,6 @@ public class VillageModel {
         return economicalBuildings;
     }
 
-    public void setEconomicalBuildings(ObservableList<EconomicalBuildings> economicalBuildings) {
-        this.economicalBuildings = economicalBuildings;
-    }
-
-    public List<Building> getBuildings() {
-        return buildings;
-    }
-
-    public void setBuildings(List<Building> buildings) {
-        this.buildings = buildings;
-    }
-
-    public String getLogsTextCounter() {
-        return logsTextCounter.get();
-    }
-
     public SimpleStringProperty logsTextCounterProperty() {
         return logsTextCounter;
     }
@@ -54,20 +38,12 @@ public class VillageModel {
         this.logsTextCounter.set(logsTextCounter);
     }
 
-    public String getFoodTextCounter() {
-        return foodTextCounter.get();
-    }
-
     public SimpleStringProperty foodTextCounterProperty() {
         return foodTextCounter;
     }
 
     public void setFoodTextCounter(String foodTextCounter) {
         this.foodTextCounter.set(foodTextCounter);
-    }
-
-    public String getBrickTextCounter() {
-        return brickTextCounter.get();
     }
 
     public SimpleStringProperty brickTextCounterProperty() {

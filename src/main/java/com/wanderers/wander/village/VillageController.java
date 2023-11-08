@@ -3,7 +3,6 @@ package com.wanderers.wander.village;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
@@ -85,10 +84,6 @@ public class VillageController {
         en lista skall ges på vad man kan bygga och vad det kostar att bygga.
      */
 
-    public void buildingSites(MouseEvent event) {
-
-    }
-
     public void mouseAction(MouseEvent event) {
         var thingThatWasPressed = event.getSource();
         if (thingThatWasPressed.equals(farmhouseImage))
@@ -101,10 +96,7 @@ public class VillageController {
         if (buildingSite.contains(thingThatWasPressed)) {
             for (Circle b : buildingSite) {
                 if (b.equals(thingThatWasPressed))
-                    if (buildingChoice.isVisible()) {
-                        buildingChoice.setVisible(false);
-                    } else
-                        buildingChoice.setVisible(true);
+                    buildingChoice.setVisible(!buildingChoice.isVisible());
             }
         }
     }
