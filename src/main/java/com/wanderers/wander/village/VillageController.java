@@ -9,6 +9,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -16,13 +17,13 @@ import java.util.List;
 
 public class VillageController {
 
-    public Button siteOne;
-    public Button siteTwo;
-    public Button siteThree;
-    public Button siteFour;
-    public Button siteFive;
-    public Button siteSix;
-    public Button siteSeven;
+    public Circle siteOne;
+    public Circle siteTwo;
+    public Circle siteThree;
+    public Circle siteFour;
+    public Circle siteFive;
+    public Circle siteSix;
+    public Circle siteSeven;
     @FXML
     private Label logsCounter;
     @FXML
@@ -40,7 +41,7 @@ public class VillageController {
     private GridPane buildingChoice;
     VillageModel model = new VillageModel();
 
-    List<Button> buildingSite;
+    List<Circle> buildingSite;
 
     public void initialize() {
         Tooltip tooltip = new Tooltip("This cost 100 brick and 20 food");
@@ -96,7 +97,7 @@ public class VillageController {
             System.out.println("VEDHUGG JAO");
 
         if (buildingSite.contains(thingThatWasPressed)) {
-            for (Button b : buildingSite) {
+            for (Circle b : buildingSite) {
                 if (b.equals(thingThatWasPressed))
                     if (buildingChoice.isVisible()) {
                         buildingChoice.setVisible(false);
