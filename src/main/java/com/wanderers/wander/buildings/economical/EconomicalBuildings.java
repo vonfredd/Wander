@@ -1,8 +1,11 @@
 package com.wanderers.wander.buildings.economical;
 
-public abstract class EconomicalBuildings {
+import com.wanderers.wander.buildings.PriceOfThings;
+
+public abstract class EconomicalBuildings implements PriceOfThings {
     protected int level;
     protected int count;
+
 
     public EconomicalBuildings(int level) {
         this.level = level;

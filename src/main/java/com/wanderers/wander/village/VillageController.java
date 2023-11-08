@@ -57,6 +57,8 @@ public class VillageController {
         buildingSite.add(siteSix);
         buildingSite.add(siteSeven);
 
+        model.startingMaterials();
+
 
         logsCounter.textProperty().bind(model.logsTextCounterProperty());
         foodCounter.textProperty().bind(model.foodTextCounterProperty());

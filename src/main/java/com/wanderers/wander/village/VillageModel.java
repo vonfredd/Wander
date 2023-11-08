@@ -63,26 +63,87 @@ public class VillageModel {
     }
 
     private void materialProduction() {
-        for(EconomicalBuildings e : economicalBuildings){
+
+        System.out.println(getEconomicalBuildings().get(1).getPriceInBricks());
+        for (EconomicalBuildings e : economicalBuildings) {
             e.produce();
         }
     }
 
     public void addBuildingToSite(String building) {
-        switch (building) {
-            case "forester" ->  upgradeEcoBuilding(0);
-            case "food" -> upgradeEcoBuilding(1);
-            case "masonry" -> upgradeEcoBuilding(2);
+        if (isAffordable(building)) {
+            switch (building) {
+                case "forester" -> upgradeEcoBuilding(0, "forester");
+                case "food" -> upgradeEcoBuilding(1, "food");
+                case "masonry" -> upgradeEcoBuilding(2, "masonry");
+            }
         }
     }
 
+    private boolean isAffordable(String building) {
+        switch (building) {
+            case "forester" -> {
+                return myAnswer(0);
+            }
+            case "food" -> {
+                return myAnswer(1);
+            }
+            case "masonry" -> {
+                return myAnswer(2);
+            }
+        }
+        return false;
+    }
 
-    private void upgradeEcoBuilding(int i) {
-        var count = economicalBuildings.get(i).getCount();
-        var ecoUpgrade = new Logs(economicalBuildings.get(i).getLevel()+1);
-        ecoUpgrade.setCount(count);
-        economicalBuildings.set(i,ecoUpgrade);
+    private boolean myAnswer(int i) {
+        if (getEconomicalBuildings().get(i).getPriceInBricks() <= getEconomicalBuildings().get(2).getCount()
+        && getEconomicalBuildings().get(i).getPriceInFood() <= getEconomicalBuildings().get(1).getCount()
+        && getEconomicalBuildings().get(i).getPriceInLumber() <= getEconomicalBuildings().get(0).getCount())
+            return true;
+        return false;
     }
 
 
+    private void upgradeEcoBuilding(int i, String type) {
+        if (type.equals("forester")) {
+            var count = economicalBuildings.get(i).getCount();
+            var ecoUpgrade = new Logs(economicalBuildings.get(i).getLevel() + 1);
+            ecoUpgrade.setCount(count);
+            economicalBuildings.set(i, ecoUpgrade);
+            editPrice(ecoUpgrade.getPriceInBricks(), ecoUpgrade.getPriceInFood(),ecoUpgrade.getPriceInLumber());
+            return;
+        }
+        if (type.equals("food")) {
+            var count = economicalBuildings.get(i).getCount();
+            var ecoUpgrade = new Food(economicalBuildings.get(i).getLevel() + 1);
+            ecoUpgrade.setCount(count);
+            economicalBuildings.set(i, ecoUpgrade);
+            editPrice(ecoUpgrade.getPriceInBricks(), ecoUpgrade.getPriceInFood(),ecoUpgrade.getPriceInLumber());
+            return;
+        }
+        if (type.equals("masonry")) {
+            var count = economicalBuildings.get(i).getCount();
+            var ecoUpgrade = new Brick(economicalBuildings.get(i).getLevel() + 1);
+            ecoUpgrade.setCount(count);
+            economicalBuildings.set(i, ecoUpgrade);
+            editPrice(ecoUpgrade.getPriceInBricks(), ecoUpgrade.getPriceInFood(),ecoUpgrade.getPriceInLumber());
+            return;
+        }
+    }
+
+    private void editPrice(int priceBricks, int priceFood, int priceLumber) {
+        int count1 = getEconomicalBuildings().get(0).getCount();
+        int count2 = getEconomicalBuildings().get(1).getCount();
+        int count3 = getEconomicalBuildings().get(2).getCount();
+        getEconomicalBuildings().get(0).setCount(count1-priceLumber);
+        getEconomicalBuildings().get(1).setCount(count2-priceFood);
+        getEconomicalBuildings().get(2).setCount(count3-priceBricks);
+    }
+
+
+    public void startingMaterials() {
+        for (EconomicalBuildings e : economicalBuildings) {
+            e.setCount(100);
+        }
+    }
 }
