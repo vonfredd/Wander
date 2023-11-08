@@ -1,4 +1,4 @@
-package com.wanderers.wander.buildings;
+package com.wanderers.wander.buildings.military;
 
 public abstract class Building {
     protected String name = "Building";

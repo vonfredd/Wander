@@ -122,7 +122,7 @@
                 <children>
                     <Pane styleClass="buildingIconHolder" GridPane.columnIndex="0" GridPane.rowIndex="0">
                         <VBox>
-                            <ImageView fx:id="farmhouseImage" fitHeight="50.0" fitWidth="50.0" onMouseEntered="#mouseAction" styleClass="buildingIconView">
+                            <ImageView fx:id="farmhouseImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction" styleClass="buildingIconView">
                                 <image>
                                     <Image url="@/farmHouse.png" />
                                 </image>
@@ -135,7 +135,7 @@
 
                     <Pane styleClass="buildingIconHolder" GridPane.columnIndex="1" GridPane.rowIndex="0">
                         <VBox>
-                            <ImageView fx:id="barrackImage" fitHeight="50.0" fitWidth="50.0" onMouseEntered="#mouseAction" styleClass="buildingIconView">
+                            <ImageView fx:id="barrackImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction" styleClass="buildingIconView">
                                 <image>
                                     <Image url="@/barrack.png" />
                                 </image>
@@ -148,7 +148,7 @@
 
                     <Pane styleClass="buildingIconHolder" GridPane.columnIndex="2" GridPane.rowIndex="0">
                         <VBox>
-                            <ImageView fx:id="woodcutterImage" fitHeight="50.0" fitWidth="50.0" onMouseEntered="#mouseAction" styleClass="buildingIconView">
+                            <ImageView fx:id="woodcutterImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction" styleClass="buildingIconView">
                                 <image>
                                     <Image url="@/woodcutter.png" />
                                 </image>
@@ -161,7 +161,7 @@
 
                     <Pane styleClass="buildingIconHolder" GridPane.columnIndex="0" GridPane.rowIndex="1">
                         <VBox>
-                            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseEntered="#mouseAction" styleClass="buildingIconView">
+                            <ImageView fx:id="masonryImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction" styleClass="buildingIconView">
                                 <image>
                                     <Image url="@/masonry.png" />
                                 </image>

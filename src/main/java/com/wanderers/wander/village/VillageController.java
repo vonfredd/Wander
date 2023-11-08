@@ -36,6 +36,8 @@ public class VillageController {
     @FXML
     private ImageView woodcutterImage;
     @FXML
+    private ImageView masonryImage;
+    @FXML
     private ImageView barrackImage;
     @FXML
     private GridPane buildingChoice;
@@ -46,6 +48,7 @@ public class VillageController {
     public void initialize() {
         Tooltip tooltip = new Tooltip("This cost 100 brick and 20 food");
         Tooltip.install(farmhouseImage, tooltip);
+        model.initializeEcoBuildings();
         buildingSite = new ArrayList<>();
         buildingSite.add(siteOne);
         buildingSite.add(siteTwo);
@@ -73,7 +76,6 @@ public class VillageController {
 
     private void updateLabel() {
         model.updateMaterialsCountingLabels();
-
     }
 
 
@@ -90,11 +92,11 @@ public class VillageController {
     public void mouseAction(MouseEvent event) {
         var thingThatWasPressed = event.getSource();
         if (thingThatWasPressed.equals(farmhouseImage))
-            System.out.println("FARMEN JAO");
-        if (thingThatWasPressed.equals(barrackImage))
-            System.out.println("BARRACK JAO");
+            model.addBuildingToSite("food");
+        if (thingThatWasPressed.equals(masonryImage))
+            model.addBuildingToSite("masonry");
         if (thingThatWasPressed.equals(woodcutterImage))
-            System.out.println("VEDHUGG JAO");
+            model.addBuildingToSite("forester");
 
         if (buildingSite.contains(thingThatWasPressed)) {
             for (Circle b : buildingSite) {
