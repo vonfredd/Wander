@@ -5,6 +5,7 @@ import com.wanderers.wander.buildings.military.Building;
 import com.wanderers.wander.buildings.economical.Brick;
 import com.wanderers.wander.buildings.economical.Food;
 import com.wanderers.wander.buildings.economical.Logs;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -75,35 +76,24 @@ public class VillageModel {
         var food = economicalBuildings.get(1);
         var brick = economicalBuildings.get(2);
 
-        if (isAffordable(getEconomicalBuildings().get(indexOfBuilding))){
-            EconomicalBuildings newBuilding = createEcobuildingOfClass(indexOfBuilding);
+        if (isAffordable(getEconomicalBuildings().get(indexOfBuilding))) {
 
             int logsPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInLumber();
             int foodPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInFood();
             int brickPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInBricks();
-            int currentCounter = getEconomicalBuildings().get(indexOfBuilding).getCount();
-            economicalBuildings.set(indexOfBuilding, newBuilding);
-            economicalBuildings.get(indexOfBuilding).setCount(currentCounter);
-            economicalBuildings.get(0).setCount(logs.getCount()-logsPrice);
-            economicalBuildings.get(1).setCount(food.getCount()-foodPrice);
-            economicalBuildings.get(2).setCount(brick.getCount()-brickPrice);
+            economicalBuildings.get(indexOfBuilding).setLevel(getEconomicalBuildings().get(indexOfBuilding).getLevel()+1);
+
+            economicalBuildings.get(0).setCount(logs.getCount() - logsPrice);
+            economicalBuildings.get(1).setCount(food.getCount() - foodPrice);
+            economicalBuildings.get(2).setCount(brick.getCount() - brickPrice);
 
         }
-        System.out.println("THE LEVEL IS" + economicalBuildings.get(indexOfBuilding).getLevel());
-
-    }
-
-
-    private EconomicalBuildings createEcobuildingOfClass(int indexOfBuilding) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
-        Class<? extends EconomicalBuildings> buildingClass = getEconomicalBuildings().get(indexOfBuilding).getClass();
-        Constructor<? extends EconomicalBuildings> constructor = buildingClass.getDeclaredConstructor(int.class);
-        return constructor.newInstance(getEconomicalBuildings().get(indexOfBuilding).getLevel()+1);
     }
 
     private boolean isAffordable(EconomicalBuildings ecoBuilding) {
-        if(ecoBuilding.getPriceInLumber() <= getEconomicalBuildings().get(0).getCount() &&
-        ecoBuilding.getPriceInFood() <= getEconomicalBuildings().get(1).getCount() &&
-        ecoBuilding.getPriceInBricks() <= getEconomicalBuildings().get(2).getCount()){
+        if (ecoBuilding.getPriceInLumber() <= getEconomicalBuildings().get(0).getCount() &&
+                ecoBuilding.getPriceInFood() <= getEconomicalBuildings().get(1).getCount() &&
+                ecoBuilding.getPriceInBricks() <= getEconomicalBuildings().get(2).getCount()) {
             return true;
         }
         return false;

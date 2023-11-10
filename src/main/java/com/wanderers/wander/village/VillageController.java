@@ -1,9 +1,12 @@
 package com.wanderers.wander.village;
 
+import com.wanderers.wander.buildings.economical.EconomicalBuildings;
+import com.wanderers.wander.listviewcellfactory.EconomicalBuildingsCell;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -41,6 +44,8 @@ public class VillageController {
     private ImageView barrackImage;
     @FXML
     private GridPane buildingChoice;
+    @FXML
+    private ListView<EconomicalBuildings> myListView;
     VillageModel model = new VillageModel();
 
     List<Circle> buildingSite;
@@ -48,6 +53,7 @@ public class VillageController {
     public void initialize() {
         Tooltip tooltip = new Tooltip("This cost 100 brick and 20 food");
         Tooltip.install(farmhouseImage, tooltip);
+        myListView.setCellFactory(param -> new EconomicalBuildingsCell());
 
         model.initializeEcoBuildings();
         buildingSite = new ArrayList<>();
@@ -60,7 +66,7 @@ public class VillageController {
         buildingSite.add(siteSeven);
 
         model.startingMaterials();
-
+        myListView.setItems(model.getEconomicalBuildings());
 
         logsCounter.textProperty().bind(model.logsTextCounterProperty());
         foodCounter.textProperty().bind(model.foodTextCounterProperty());
@@ -79,22 +85,20 @@ public class VillageController {
 
     private void updateLabel() {
         model.updateMaterialsCountingLabels();
+        myListView.refresh();
     }
-
-
-    /*När man trycker på en byggplatsknapp, skall man få möjlighet att bygga olika byggnader.
-        en lista skall ges på vad man kan bygga och vad det kostar att bygga.
-     */
-
     public void mouseAction(MouseEvent event) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         var thingThatWasPressed = event.getSource();
 
-        if (thingThatWasPressed.equals(woodcutterImage))
+        if (thingThatWasPressed.equals(woodcutterImage)) {
             model.addBuildingToSite(0);
-        if (thingThatWasPressed.equals(farmhouseImage))
+        }
+        if (thingThatWasPressed.equals(farmhouseImage)) {
             model.addBuildingToSite(1);
-        if (thingThatWasPressed.equals(masonryImage))
+        }
+        if (thingThatWasPressed.equals(masonryImage)) {
             model.addBuildingToSite(2);
+        }
 
         if (buildingSite.contains(thingThatWasPressed)) {
             for (Circle b : buildingSite) {

@@ -4,7 +4,7 @@ import com.wanderers.wander.buildings.PriceOfThings;
 
 public class Logs extends EconomicalBuildings implements PriceOfThings {
     public Logs(int level) {
-        super(level);
+        super(level,"Forester");
     }
 
     @Override
