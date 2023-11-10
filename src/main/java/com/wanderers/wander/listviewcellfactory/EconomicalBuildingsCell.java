@@ -12,7 +12,7 @@ public class EconomicalBuildingsCell extends ListCell<EconomicalBuildings> {
         if (empty || item == null) {
             setText(null);
         } else {
-            setText(item.getNameOfBuilding() + ", Level: " + item.getLevel() + ", Count: " + item.getCount());
+            setText(item.getNameOfBuilding() + ", LVL: " + item.getLevel() + ", Production: " + item.getLevel()+"/sec");
         }
     }
 }

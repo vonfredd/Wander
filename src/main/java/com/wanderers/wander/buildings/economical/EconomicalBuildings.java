@@ -5,7 +5,6 @@ import com.wanderers.wander.buildings.PriceOfThings;
 public abstract class EconomicalBuildings implements PriceOfThings {
     protected int level;
     protected int count;
-
     protected String nameOfBuilding;
 
 

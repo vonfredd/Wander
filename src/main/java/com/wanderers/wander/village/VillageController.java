@@ -4,6 +4,7 @@ import com.wanderers.wander.buildings.economical.EconomicalBuildings;
 import com.wanderers.wander.listviewcellfactory.EconomicalBuildingsCell;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -34,6 +35,18 @@ public class VillageController {
     @FXML
     private Label farmBrickPrice;
     @FXML
+    private Label foresterLogsPrice;
+    @FXML
+    private Label foresterFoodPrice;
+    @FXML
+    private Label foresterBrickPrice;
+    @FXML
+    private Label masonryLogsPrice;
+    @FXML
+    private Label masonryFoodPrice;
+    @FXML
+    private Label masonryBrickPrice;
+    @FXML
     private Label logsCounter;
     @FXML
     private Label foodCounter;
@@ -53,6 +66,7 @@ public class VillageController {
     @FXML
     private ListView<EconomicalBuildings> myListView;
     VillageModel model = new VillageModel();
+
 
     List<Circle> buildingSite;
 
@@ -78,6 +92,19 @@ public class VillageController {
         logsCounter.textProperty().bind(model.logsTextCounterProperty());
         foodCounter.textProperty().bind(model.foodTextCounterProperty());
         brickCounter.textProperty().bind(model.brickTextCounterProperty());
+        model.setEcoIconPrice();
+
+        foresterLogsPrice.textProperty().bind(model.getIconPriceBuildings().get(0));
+        foresterFoodPrice.textProperty().bind(model.getIconPriceBuildings().get(1));
+        foresterBrickPrice.textProperty().bind(model.getIconPriceBuildings().get(2));
+
+        farmLogsPrice.textProperty().bind(model.getIconPriceBuildings().get(3));
+        farmFoodPrice.textProperty().bind(model.getIconPriceBuildings().get(4));
+        farmBrickPrice.textProperty().bind(model.getIconPriceBuildings().get(5));
+
+        masonryLogsPrice.textProperty().bind(model.getIconPriceBuildings().get(6));
+        masonryFoodPrice.textProperty().bind(model.getIconPriceBuildings().get(7));
+        masonryBrickPrice.textProperty().bind(model.getIconPriceBuildings().get(8));
 
         startingTheTimeline();
     }

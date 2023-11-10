@@ -15,8 +15,33 @@ public class VillageModel {
     private final SimpleStringProperty logsTextCounter = new SimpleStringProperty();
     private final SimpleStringProperty foodTextCounter = new SimpleStringProperty();
     private final SimpleStringProperty brickTextCounter = new SimpleStringProperty();
+
     private final List<Building> buildings = new ArrayList<>();
     private ObservableList<EconomicalBuildings> economicalBuildings;
+    private ObservableList<SimpleStringProperty> iconPriceBuildings;
+
+    public ObservableList<SimpleStringProperty> getIconPriceBuildings() {
+        return iconPriceBuildings;
+    }
+
+    public void setIconPriceBuildings(ObservableList<SimpleStringProperty> iconPriceBuildings) {
+        this.iconPriceBuildings = iconPriceBuildings;
+    }
+
+    public void setEcoIconPrice(){
+        iconPriceBuildings = FXCollections.observableArrayList();
+        iconPriceBuildings.add(new SimpleStringProperty("Logs: " + getEconomicalBuildings().get(0).getPriceInLumber()));
+        iconPriceBuildings.add(new SimpleStringProperty("Food: " + getEconomicalBuildings().get(0).getPriceInFood()));
+        iconPriceBuildings.add(new SimpleStringProperty("Brick: " + getEconomicalBuildings().get(0).getPriceInBricks()));
+
+        iconPriceBuildings.add(new SimpleStringProperty("Logs: " + getEconomicalBuildings().get(1).getPriceInLumber()));
+        iconPriceBuildings.add(new SimpleStringProperty("Food: " + getEconomicalBuildings().get(1).getPriceInFood()));
+        iconPriceBuildings.add(new SimpleStringProperty("Brick: " + getEconomicalBuildings().get(1).getPriceInBricks()));
+
+        iconPriceBuildings.add(new SimpleStringProperty("Logs: " + getEconomicalBuildings().get(2).getPriceInLumber()));
+        iconPriceBuildings.add(new SimpleStringProperty("Food: " + getEconomicalBuildings().get(2).getPriceInFood()));
+        iconPriceBuildings.add(new SimpleStringProperty("Brick: " + getEconomicalBuildings().get(2).getPriceInBricks()));
+    }
 
     public void initializeEcoBuildings() {
         economicalBuildings = FXCollections.observableArrayList();
@@ -73,6 +98,17 @@ public class VillageModel {
 
         if (isAffordable(getEconomicalBuildings().get(indexOfBuilding))) {
 
+            int offsetOne = 0;
+            int offsetTwo = 1;
+            int offsetThree = 2;
+
+            switch(indexOfBuilding){
+                case 0 -> {
+                }
+                case 1 -> { offsetOne = 3; offsetTwo = 4; offsetThree = 5;}
+                case 2 -> { offsetOne = 6; offsetTwo = 7; offsetThree = 8;}
+            }
+
             int logsPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInLumber();
             int foodPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInFood();
             int brickPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInBricks();
@@ -81,6 +117,10 @@ public class VillageModel {
             economicalBuildings.get(0).setCount(logs.getCount() - logsPrice);
             economicalBuildings.get(1).setCount(food.getCount() - foodPrice);
             economicalBuildings.get(2).setCount(brick.getCount() - brickPrice);
+
+            iconPriceBuildings.get(offsetOne).setValue("Logs: " + getEconomicalBuildings().get(indexOfBuilding).getPriceInLumber());
+            iconPriceBuildings.get(offsetTwo).setValue("Food: " + getEconomicalBuildings().get(indexOfBuilding).getPriceInFood());
+            iconPriceBuildings.get(offsetThree).setValue("Brick: " + getEconomicalBuildings().get(indexOfBuilding).getPriceInBricks());
         }
     }
 
