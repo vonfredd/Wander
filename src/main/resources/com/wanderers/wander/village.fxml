@@ -27,7 +27,7 @@
     <center>
         <StackPane maxHeight="10.0" maxWidth="10.0" prefHeight="670.0" prefWidth="800.0" BorderPane.alignment="CENTER">
 
-            <ImageView fitHeight="650.0" fitWidth="650.0">
+            <ImageView fitHeight="650.0" fitWidth="650.0" style="-fx-background-radius: 50;">
                 <Image url="@/village.png"/>
             </ImageView>
             <Circle fx:id="siteOne" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
@@ -135,9 +135,9 @@
                             <Image url="@/farmHouse.png"/>
                         </ImageView>
                         <Label styleClass="buildingCost" text="Farm"/>
-                        <Label styleClass="buildingCost" text="Logs: 90"/>
-                        <Label styleClass="buildingCost" text="Food: 20"/>
-                        <Label styleClass="buildingCost" text="Brick: 20"/>
+                        <Label fx:id="farmLogsPrice" styleClass="buildingCost" text="Logs: 90"/>
+                        <Label fx:id="farmFoodPrice" styleClass="buildingCost" text="Food: 20"/>
+                        <Label fx:id="farmBrickPrice" styleClass="buildingCost" text="Brick: 20"/>
                     </VBox>
                 </Pane>
 

@@ -28,6 +28,12 @@ public class VillageController {
     public Circle siteSix;
     public Circle siteSeven;
     @FXML
+    private Label farmLogsPrice;
+    @FXML
+    private Label farmFoodPrice;
+    @FXML
+    private Label farmBrickPrice;
+    @FXML
     private Label logsCounter;
     @FXML
     private Label foodCounter;
@@ -56,6 +62,7 @@ public class VillageController {
         myListView.setCellFactory(param -> new EconomicalBuildingsCell());
 
         model.initializeEcoBuildings();
+
         buildingSite = new ArrayList<>();
         buildingSite.add(siteOne);
         buildingSite.add(siteTwo);
@@ -75,6 +82,7 @@ public class VillageController {
         startingTheTimeline();
     }
 
+
     private void startingTheTimeline() {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> updateLabel())
@@ -87,6 +95,7 @@ public class VillageController {
         model.updateMaterialsCountingLabels();
         myListView.refresh();
     }
+
     public void mouseAction(MouseEvent event) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         var thingThatWasPressed = event.getSource();
 
@@ -107,5 +116,4 @@ public class VillageController {
             }
         }
     }
-
 }

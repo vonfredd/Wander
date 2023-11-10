@@ -71,7 +71,7 @@ public class VillageModel {
         }
     }
 
-    public void addBuildingToSite(int indexOfBuilding) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public void addBuildingToSite(int indexOfBuilding){
         var logs = economicalBuildings.get(0);
         var food = economicalBuildings.get(1);
         var brick = economicalBuildings.get(2);
@@ -81,12 +81,11 @@ public class VillageModel {
             int logsPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInLumber();
             int foodPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInFood();
             int brickPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInBricks();
-            economicalBuildings.get(indexOfBuilding).setLevel(getEconomicalBuildings().get(indexOfBuilding).getLevel()+1);
+            economicalBuildings.get(indexOfBuilding).setLevel(getEconomicalBuildings().get(indexOfBuilding).getLevel() + 1);
 
             economicalBuildings.get(0).setCount(logs.getCount() - logsPrice);
             economicalBuildings.get(1).setCount(food.getCount() - foodPrice);
             economicalBuildings.get(2).setCount(brick.getCount() - brickPrice);
-
         }
     }
 
