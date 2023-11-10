@@ -124,7 +124,7 @@ public class VillageModel {
         }
     }
 
-    private boolean isAffordable(EconomicalBuildings ecoBuilding) {
+    public boolean isAffordable(EconomicalBuildings ecoBuilding) {
         if (ecoBuilding.getPriceInLumber() <= getEconomicalBuildings().get(0).getCount() &&
                 ecoBuilding.getPriceInFood() <= getEconomicalBuildings().get(1).getCount() &&
                 ecoBuilding.getPriceInBricks() <= getEconomicalBuildings().get(2).getCount()) {

@@ -9,10 +9,12 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="720" maxWidth="1280" minHeight="720" minWidth="1280" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wanderers.wander.village.VillageController">
+<BorderPane maxHeight="720" maxWidth="1280" minHeight="720" minWidth="1280" prefHeight="720" prefWidth="1280"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.wanderers.wander.village.VillageController">
 
     <stylesheets>
-        <URL value="@styles.css" />
+        <URL value="@styles.css"/>
     </stylesheets>
 
     <right>
@@ -27,25 +29,67 @@
         <StackPane maxHeight="10.0" maxWidth="10.0" prefHeight="670.0" prefWidth="800.0" BorderPane.alignment="CENTER">
 
             <ImageView fitHeight="650.0" fitWidth="650.0">
-                <Image url="@/village.png" />
-            <effect>
-               <Lighting diffuseConstant="2.0" specularConstant="0.32" specularExponent="40.0" surfaceScale="0.0">
-                  <bumpInput>
-                     <Shadow />
-                  </bumpInput>
-                  <light>
-                     <Light.Distant />
-                  </light>
-               </Lighting>
-            </effect>
+                <Image url="@/village.png"/>
+                <effect>
+                    <Lighting diffuseConstant="2.0" specularConstant="0.32" specularExponent="40.0" surfaceScale="0.0">
+                        <bumpInput>
+                            <Shadow/>
+                        </bumpInput>
+                        <light>
+                            <Light.Distant/>
+                        </light>
+                    </Lighting>
+                </effect>
             </ImageView>
-            <Circle fx:id="siteOne" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction" radius="33.0" styleClass="buildSiteCircle" translateX="-108.0" translateY="-110.0" />
-            <Circle fx:id="siteTwo" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction" radius="33.0" styleClass="buildSiteCircle" translateX="-10.0" translateY="-140.0" />
-            <Circle fx:id="siteThree" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction" radius="33.0" styleClass="buildSiteCircle" translateX="79.0" translateY="-113.0" />
-            <Circle fx:id="siteFour" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction" radius="33.0" styleClass="buildSiteCircle" translateX="84.0" translateY="10.0" />
-            <Circle fx:id="siteFive" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction" radius="35.0" styleClass="buildSiteCircle" translateX="5.0" translateY="52.0" />
-            <Circle fx:id="siteSix" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction" radius="34.0" styleClass="buildSiteCircle" translateX="-81.0" translateY="27.0" />
-            <Circle fx:id="siteSeven" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction" radius="33.0" styleClass="buildSiteCircle" translateX="180.0" translateY="30.0" />
+            <StackPane>
+                <Circle fx:id="siteOne" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
+                        radius="33.0" styleClass="buildSiteCircle" translateX="-108.0" translateY="-110.0"/>
+                <ImageView fx:id="myTestingImage" visible="false" translateX="-108.0" translateY="-110.0">
+                    <!-- Set image properties here -->
+                </ImageView>
+            </StackPane>
+            <StackPane>
+                <Circle fx:id="siteTwo" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
+                        radius="33.0" styleClass="buildSiteCircle" translateX="-10.0" translateY="-140.0"/>
+                <ImageView fx:id="myTestingImageTwo" visible="false" translateX="-50.0" translateY="-50.0">
+                    <!-- Set image properties here -->
+                </ImageView>
+            </StackPane>
+        <StackPane>
+            <Circle fx:id="siteThree" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
+                    radius="33.0" styleClass="buildSiteCircle" translateX="79.0" translateY="-113.0"/>
+            <ImageView fx:id="myTestingImageThree" visible="false" translateX="-108.0" translateY="-110.0">
+                <!-- Set image properties here -->
+            </ImageView>
+        </StackPane>
+        <StackPane>
+            <Circle fx:id="siteFour" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
+                    radius="33.0" styleClass="buildSiteCircle" translateX="84.0" translateY="10.0"/>
+            <ImageView fx:id="myTestingImageFour" visible="false" translateX="-108.0" translateY="-110.0">
+                <!-- Set image properties here -->
+            </ImageView>
+        </StackPane>
+        <StackPane>
+            <Circle fx:id="siteFive" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
+                    radius="35.0" styleClass="buildSiteCircle" translateX="5.0" translateY="52.0"/>
+            <ImageView fx:id="myTestingImageFive" visible="false" translateX="-108.0" translateY="-110.0">
+                <!-- Set image properties here -->
+            </ImageView>
+        </StackPane>
+        <StackPane>
+            <Circle fx:id="siteSix" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
+                    radius="34.0" styleClass="buildSiteCircle" translateX="-81.0" translateY="27.0"/>
+            <ImageView fx:id="myTestingImageSix" visible="false" translateX="-108.0" translateY="-110.0">
+                <!-- Set image properties here -->
+            </ImageView>
+        </StackPane>
+        <StackPane>
+            <Circle fx:id="siteSeven" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
+                    radius="33.0" styleClass="buildSiteCircle" translateX="180.0" translateY="30.0"/>
+            <ImageView fx:id="myTestingImageSeven" visible="false" translateX="-108.0" translateY="-110.0">
+                <!-- Set image properties here -->
+            </ImageView>
+        </StackPane>
 
         </StackPane>
     </center>
@@ -56,41 +100,41 @@
             <HBox>
                 <ImageView fitHeight="50.0" fitWidth="50.0">
                     <HBox.margin>
-                        <Insets left="293.0" />
+                        <Insets left="293.0"/>
                     </HBox.margin>
-                    <Image url="@/logs.png" />
+                    <Image url="@/logs.png"/>
                 </ImageView>
                 <Label fx:id="logsCounter" contentDisplay="CENTER" text="0">
                     <padding>
-                        <Insets left="5.0" top="15.0" />
+                        <Insets left="5.0" top="15.0"/>
                     </padding>
                     <font>
-                        <Font name="Georgia" size="24.0" />
+                        <Font name="Georgia" size="24.0"/>
                     </font>
                     <opaqueInsets>
-                        <Insets />
+                        <Insets/>
                     </opaqueInsets>
                     <HBox.margin>
-                        <Insets />
+                        <Insets/>
                     </HBox.margin>
                 </Label>
             </HBox>
             <HBox>
                 <ImageView fitHeight="50.0" fitWidth="50.0">
                     <HBox.margin>
-                        <Insets left="586.0" />
+                        <Insets left="586.0"/>
                     </HBox.margin>
-                    <Image url="@/wheat.png" />
+                    <Image url="@/wheat.png"/>
                 </ImageView>
                 <Label fx:id="foodCounter" text="0">
                     <padding>
-                        <Insets left="5.0" top="15.0" />
+                        <Insets left="5.0" top="15.0"/>
                     </padding>
                     <font>
-                        <Font name="Georgia" size="24.0" />
+                        <Font name="Georgia" size="24.0"/>
                     </font>
                     <HBox.margin>
-                        <Insets />
+                        <Insets/>
                     </HBox.margin>
                 </Label>
             </HBox>
@@ -98,16 +142,16 @@
             <HBox>
                 <ImageView fitHeight="50.0" fitWidth="50.0">
                     <HBox.margin>
-                        <Insets left="880.0" />
+                        <Insets left="880.0"/>
                     </HBox.margin>
-                    <Image url="@/bricks.png" />
+                    <Image url="@/bricks.png"/>
                 </ImageView>
                 <Label fx:id="brickCounter" text="0">
                     <padding>
-                        <Insets left="5.0" top="15.0" />
+                        <Insets left="5.0" top="15.0"/>
                     </padding>
                     <font>
-                        <Font name="Georgia" size="24.0" />
+                        <Font name="Georgia" size="24.0"/>
                     </font>
                 </Label>
             </HBox>
@@ -116,75 +160,87 @@
     <left>
 
         <Pane prefHeight="600" prefWidth="240">
-            <GridPane fx:id="buildingChoice" alignment="CENTER" hgap="5.0" prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: lightgrey; " translateX="0.0" translateY="0.0" vgap="5.0" visible="false" BorderPane.alignment="CENTER">
+            <GridPane fx:id="buildingChoice" alignment="CENTER" hgap="5.0" prefHeight="600.0" prefWidth="240.0"
+                      style="-fx-background-color: lightgrey; " translateX="0.0" translateY="0.0" vgap="5.0"
+                      visible="false" BorderPane.alignment="CENTER">
                 <rowConstraints>
-                    <RowConstraints />
-                    <RowConstraints />
-                    <RowConstraints />
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
                 </rowConstraints>
                 <columnConstraints>
-                    <ColumnConstraints />
-                    <ColumnConstraints />
-                    <ColumnConstraints />
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
                 </columnConstraints>
 
-                <Pane minHeight="130.0" prefHeight="130.0" styleClass="buildingIconHolder" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Pane minHeight="130.0" prefHeight="130.0" styleClass="buildingIconHolder" GridPane.columnIndex="0"
+                      GridPane.rowIndex="0">
                     <VBox>
-                        <ImageView fx:id="farmhouseImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction" styleClass="buildingIconView">
-                            <Image url="@/farmHouse.png" />
+                        <ImageView fx:id="farmhouseImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction"
+                                   styleClass="buildingIconView">
+                            <Image url="@/farmHouse.png"/>
                         </ImageView>
-                        <Label styleClass="buildingCost" text="Farm" />
-                        <Label fx:id="farmLogsPrice" styleClass="buildingCost" text="Logs: 90" />
-                        <Label fx:id="farmFoodPrice" styleClass="buildingCost" text="Food: 20" />
-                        <Label fx:id="farmBrickPrice" styleClass="buildingCost" text="Brick: 20" />
+                        <Label styleClass="buildingCost" text="Farm"/>
+                        <Label fx:id="farmLogsPrice" styleClass="buildingCost" text="Logs: 90"/>
+                        <Label fx:id="farmFoodPrice" styleClass="buildingCost" text="Food: 20"/>
+                        <Label fx:id="farmBrickPrice" styleClass="buildingCost" text="Brick: 20"/>
                     </VBox>
                 </Pane>
 
-                <Pane prefHeight="130.0" prefWidth="77.0" styleClass="buildingIconHolder" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Pane prefHeight="130.0" prefWidth="77.0" styleClass="buildingIconHolder" GridPane.columnIndex="1"
+                      GridPane.rowIndex="0">
                     <VBox>
-                        <ImageView fx:id="barrackImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction" styleClass="buildingIconView">
-                            <Image url="@/barrack.png" />
+                        <ImageView fx:id="barrackImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction"
+                                   styleClass="buildingIconView">
+                            <Image url="@/barrack.png"/>
                         </ImageView>
-                        <Label styleClass="buildingCost" text="Barrack" />
-                        <Label styleClass="buildingCost" text="Logs: 100" />
-                        <Label styleClass="buildingCost" text="Brick: 200" />
+                        <Label styleClass="buildingCost" text="Barrack"/>
+                        <Label styleClass="buildingCost" text="Logs: 100"/>
+                        <Label styleClass="buildingCost" text="Brick: 200"/>
                     </VBox>
                 </Pane>
 
                 <Pane styleClass="buildingIconHolder" GridPane.columnIndex="2" GridPane.rowIndex="0">
                     <VBox>
-                        <ImageView fx:id="woodcutterImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction" styleClass="buildingIconView">
-                            <Image url="@/woodcutter.png" />
+                        <ImageView fx:id="woodcutterImage" fitHeight="50.0" fitWidth="50.0"
+                                   onMouseClicked="#mouseAction" styleClass="buildingIconView">
+                            <Image url="@/woodcutter.png"/>
                         </ImageView>
-                        <Label styleClass="buildingCost" text="Forester" />
-                        <Label fx:id="foresterLogsPrice" styleClass="buildingCost" text="Logs: 90" />
-                        <Label fx:id="foresterFoodPrice" styleClass="buildingCost" text="Food: 20" />
-                        <Label fx:id="foresterBrickPrice" styleClass="buildingCost" text="Brick: 20" />
+                        <Label styleClass="buildingCost" text="Forester"/>
+                        <Label fx:id="foresterLogsPrice" styleClass="buildingCost" text="Logs: 90"/>
+                        <Label fx:id="foresterFoodPrice" styleClass="buildingCost" text="Food: 20"/>
+                        <Label fx:id="foresterBrickPrice" styleClass="buildingCost" text="Brick: 20"/>
                     </VBox>
                 </Pane>
 
                 <Pane minHeight="130.0" styleClass="buildingIconHolder" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <VBox>
-                        <ImageView fx:id="masonryImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction" styleClass="buildingIconView">
-                            <Image url="@/masonry.png" />
+                        <ImageView fx:id="masonryImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#mouseAction"
+                                   styleClass="buildingIconView">
+                            <Image url="@/masonry.png"/>
                         </ImageView>
-                        <Label styleClass="buildingCost" text="Masonry" />
-                        <Label fx:id="masonryLogsPrice" styleClass="buildingCost" text="Logs: 90" />
-                        <Label fx:id="masonryFoodPrice" styleClass="buildingCost" text="Food: 20" />
-                        <Label fx:id="masonryBrickPrice" styleClass="buildingCost" text="Brick: 20" />
+                        <Label styleClass="buildingCost" text="Masonry"/>
+                        <Label fx:id="masonryLogsPrice" styleClass="buildingCost" text="Logs: 90"/>
+                        <Label fx:id="masonryFoodPrice" styleClass="buildingCost" text="Food: 20"/>
+                        <Label fx:id="masonryBrickPrice" styleClass="buildingCost" text="Brick: 20"/>
                     </VBox>
                 </Pane>
 
-                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: grey;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: grey;" GridPane.columnIndex="1"
+                      GridPane.rowIndex="1"/>
 
-                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: purple;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: purple;" GridPane.columnIndex="2"
+                      GridPane.rowIndex="1"/>
 
+                <Pane minHeight="130.0" prefHeight="109.0" prefWidth="76.0" style="-fx-background-color: pink;"
+                      GridPane.columnIndex="0" GridPane.rowIndex="2"/>
 
-                <Pane minHeight="130.0" prefHeight="109.0" prefWidth="76.0" style="-fx-background-color: pink;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: orange;" GridPane.columnIndex="1"
+                      GridPane.rowIndex="2"/>
 
-                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-
-                <Pane prefHeight="50" prefWidth="49.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Pane prefHeight="50" prefWidth="49.0" style="-fx-background-color: white;" GridPane.columnIndex="2"
+                      GridPane.rowIndex="2"/>
 
             </GridPane>
         </Pane>

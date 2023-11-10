@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -28,6 +29,14 @@ public class VillageController {
     public Circle siteFive;
     public Circle siteSix;
     public Circle siteSeven;
+    public ImageView myTestingImageTwo;
+    public ImageView myTestingImageThree;
+    public ImageView myTestingImageFour;
+    public ImageView myTestingImageFive;
+    public ImageView myTestingImageSix;
+    public ImageView myTestingImageSeven;
+    @FXML
+    private ImageView myTestingImage;
     @FXML
     private Label farmLogsPrice;
     @FXML
@@ -67,6 +76,26 @@ public class VillageController {
     private ListView<EconomicalBuildings> myListView;
     VillageModel model = new VillageModel();
 
+
+    @FXML
+    private void handleEvent(ImageView myImage, Circle circle, String imageName) {
+        int x = (int) circle.getTranslateX();
+        int y = (int) circle.getTranslateY();
+
+        // Load image dynamically
+        Image image = new Image("/" + imageName);
+
+        // Set the image to the ImageView
+        myImage.setImage(image);
+        myImage.setX(x);
+        myImage.setY(y);
+
+        // Hide the Circle
+        circle.setVisible(false);
+
+        // Show the ImageView
+        myImage.setVisible(true);
+    }
 
     List<Circle> buildingSite;
 
@@ -129,18 +158,8 @@ public class VillageController {
         myListView.refresh();
     }
 
-    public void mouseAction(MouseEvent event) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public void mouseAction(MouseEvent event) {
         var thingThatWasPressed = event.getSource();
-
-        if (thingThatWasPressed.equals(woodcutterImage)) {
-            model.addBuildingToSite(0);
-        }
-        if (thingThatWasPressed.equals(farmhouseImage)) {
-            model.addBuildingToSite(1);
-        }
-        if (thingThatWasPressed.equals(masonryImage)) {
-            model.addBuildingToSite(2);
-        }
 
         if (buildingSite.contains(thingThatWasPressed)) {
             for (Circle b : buildingSite) {
@@ -148,5 +167,25 @@ public class VillageController {
                     buildingChoice.setVisible(!buildingChoice.isVisible());
             }
         }
+
+        if (thingThatWasPressed.equals(woodcutterImage)) {
+            model.addBuildingToSite(0);
+            if (model.isAffordable(model.getEconomicalBuildings().get(0))) {
+                handleEvent(myTestingImage, buildingSite.get(0), "woodcutter.png");
+            }
+        }
+        if (thingThatWasPressed.equals(farmhouseImage)) {
+            model.addBuildingToSite(1);
+            if (model.isAffordable(model.getEconomicalBuildings().get(1))) {
+                handleEvent(myTestingImageTwo, buildingSite.get(1), "farmHouse.png");
+            }
+        }
+        if (thingThatWasPressed.equals(masonryImage)) {
+            model.addBuildingToSite(2);
+            if (model.isAffordable(model.getEconomicalBuildings().get(2))) {
+                handleEvent(myTestingImageThree, buildingSite.get(2), "bricks.png");
+            }
+        }
+
     }
 }
