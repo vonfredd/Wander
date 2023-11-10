@@ -109,14 +109,6 @@ public class VillageModel {
         return false;
     }
 
-    private boolean myAnswer(int i) {
-        return false;
-    }
-
-
-    private void upgradeEcoBuilding(int i, String type) {
-    }
-
 
     public void startingMaterials() {
         for (EconomicalBuildings e : economicalBuildings) {

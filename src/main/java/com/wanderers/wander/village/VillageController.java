@@ -48,6 +48,7 @@ public class VillageController {
     public void initialize() {
         Tooltip tooltip = new Tooltip("This cost 100 brick and 20 food");
         Tooltip.install(farmhouseImage, tooltip);
+
         model.initializeEcoBuildings();
         buildingSite = new ArrayList<>();
         buildingSite.add(siteOne);
