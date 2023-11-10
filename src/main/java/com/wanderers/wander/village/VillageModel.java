@@ -5,13 +5,9 @@ import com.wanderers.wander.buildings.military.Building;
 import com.wanderers.wander.buildings.economical.Brick;
 import com.wanderers.wander.buildings.economical.Food;
 import com.wanderers.wander.buildings.economical.Logs;
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
