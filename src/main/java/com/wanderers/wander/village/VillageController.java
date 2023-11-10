@@ -39,6 +39,7 @@ public class VillageController {
     private Label foodCounter;
     @FXML
     private Label brickCounter;
+
     @FXML
     private ImageView farmhouseImage;
     @FXML
@@ -53,7 +54,6 @@ public class VillageController {
     private ListView<EconomicalBuildings> myListView;
     VillageModel model = new VillageModel();
 
-    private static int updateCounter = 0;
     List<Circle> buildingSite;
 
     public void initialize() {
@@ -85,18 +85,16 @@ public class VillageController {
 
     private void startingTheTimeline() {
         Timeline timeline = new Timeline(
-                new KeyFrame(Duration.millis(100), event -> {
-                    if (updateCounter == 10) {
-                        updateLabel();
-                        myListView.refresh();
-                        updateCounter = 0;
-                    } else {
-                        updateCounter++;
-                    }
-                })
+                new KeyFrame(Duration.millis(100), event -> updateLabel())
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+
+        Timeline timelineProduce = new Timeline(
+                new KeyFrame(Duration.seconds(1), event -> model.materialProduction())
+        );
+        timelineProduce.setCycleCount(Timeline.INDEFINITE);
+        timelineProduce.play();
     }
 
     private void updateLabel() {
@@ -104,7 +102,7 @@ public class VillageController {
         myListView.refresh();
     }
 
-    public void mouseAction(MouseEvent event){
+    public void mouseAction(MouseEvent event) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         var thingThatWasPressed = event.getSource();
 
         if (thingThatWasPressed.equals(woodcutterImage)) {

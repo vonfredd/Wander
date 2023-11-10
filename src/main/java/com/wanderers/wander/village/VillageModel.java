@@ -55,13 +55,12 @@ public class VillageModel {
 
 
     public void updateMaterialsCountingLabels() {
-        materialProduction();
         setLogsTextCounter(String.valueOf(getEconomicalBuildings().get(0).getCount()));
         setFoodTextCounter(String.valueOf(getEconomicalBuildings().get(1).getCount()));
         setBrickTextCounter(String.valueOf(getEconomicalBuildings().get(2).getCount()));
     }
 
-    private void materialProduction() {
+    public void materialProduction() {
         for (EconomicalBuildings e : economicalBuildings) {
             e.produce();
         }
