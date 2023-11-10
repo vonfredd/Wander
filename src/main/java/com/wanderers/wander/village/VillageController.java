@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,20 +81,19 @@ public class VillageController {
     }
 
 
-
-
     /*När man trycker på en byggplatsknapp, skall man få möjlighet att bygga olika byggnader.
         en lista skall ges på vad man kan bygga och vad det kostar att bygga.
      */
 
-    public void mouseAction(MouseEvent event) {
+    public void mouseAction(MouseEvent event) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         var thingThatWasPressed = event.getSource();
-        if (thingThatWasPressed.equals(farmhouseImage))
-            model.addBuildingToSite("food");
-        if (thingThatWasPressed.equals(masonryImage))
-            model.addBuildingToSite("masonry");
+
         if (thingThatWasPressed.equals(woodcutterImage))
-            model.addBuildingToSite("forester");
+            model.addBuildingToSite(0);
+        if (thingThatWasPressed.equals(farmhouseImage))
+            model.addBuildingToSite(1);
+        if (thingThatWasPressed.equals(masonryImage))
+            model.addBuildingToSite(2);
 
         if (buildingSite.contains(thingThatWasPressed)) {
             for (Circle b : buildingSite) {

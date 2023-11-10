@@ -128,7 +128,8 @@
                                 </image>
                             </ImageView>
                             <Label styleClass="buildingCost" text="Farm" />
-                            <Label styleClass="buildingCost" text="Logs: 50" />
+                            <Label styleClass="buildingCost" text="Logs: 90" />
+                            <Label styleClass="buildingCost" text="Food: 20" />
                             <Label styleClass="buildingCost" text="Brick: 20" />
                         </VBox>
                     </Pane>
@@ -154,8 +155,9 @@
                                 </image>
                             </ImageView>
                             <Label styleClass="buildingCost" text="Forester" />
-                            <Label styleClass="buildingCost" text="Logs: 20" />
-                            <Label styleClass="buildingCost" text="Brick: 60" />
+                            <Label styleClass="buildingCost" text="Logs: 90" />
+                            <Label styleClass="buildingCost" text="Food: 20" />
+                            <Label styleClass="buildingCost" text="Brick: 20" />
                         </VBox>
                     </Pane>
 
@@ -168,6 +170,7 @@
                             </ImageView>
                             <Label styleClass="buildingCost" text="Masonry" />
                             <Label styleClass="buildingCost" text="Logs: 90" />
+                            <Label styleClass="buildingCost" text="Food: 20" />
                             <Label styleClass="buildingCost" text="Brick: 20" />
                         </VBox>
                     </Pane>
