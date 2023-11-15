@@ -96,8 +96,6 @@ public class VillageModel {
         var food = economicalBuildings.get(1);
         var brick = economicalBuildings.get(2);
 
-        if (isAffordable(getEconomicalBuildings().get(indexOfBuilding))) {
-
             int offsetOne = 0;
             int offsetTwo = 1;
             int offsetThree = 2;
@@ -121,10 +119,11 @@ public class VillageModel {
             iconPriceBuildings.get(offsetOne).setValue("Logs: " + getEconomicalBuildings().get(indexOfBuilding).getPriceInLumber());
             iconPriceBuildings.get(offsetTwo).setValue("Food: " + getEconomicalBuildings().get(indexOfBuilding).getPriceInFood());
             iconPriceBuildings.get(offsetThree).setValue("Brick: " + getEconomicalBuildings().get(indexOfBuilding).getPriceInBricks());
-        }
+
     }
 
     public boolean isAffordable(EconomicalBuildings ecoBuilding) {
+
         if (ecoBuilding.getPriceInLumber() <= getEconomicalBuildings().get(0).getCount() &&
                 ecoBuilding.getPriceInFood() <= getEconomicalBuildings().get(1).getCount() &&
                 ecoBuilding.getPriceInBricks() <= getEconomicalBuildings().get(2).getCount()) {

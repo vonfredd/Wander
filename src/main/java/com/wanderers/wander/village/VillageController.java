@@ -4,6 +4,7 @@ import com.wanderers.wander.buildings.economical.EconomicalBuildings;
 import com.wanderers.wander.listviewcellfactory.EconomicalBuildingsCell;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -79,6 +80,8 @@ public class VillageController {
 
     @FXML
     private void handleEvent(ImageView myImage, Circle circle, String imageName) {
+
+        System.out.println("New one      \n" + myImage +"  \n"+ circle +"  \n" + imageName +" \n");
         int x = (int) circle.getTranslateX();
         int y = (int) circle.getTranslateY();
 
@@ -170,21 +173,26 @@ public class VillageController {
             }
         }
 
+
+
         if (thingThatWasPressed.equals(woodcutterImage)) {
-            model.addBuildingToSite(0);
             if (model.isAffordable(model.getEconomicalBuildings().get(0))) {
+                model.addBuildingToSite(0);
                 handleEvent(myTestingImage, buildingSite.get(0), "woodcutter.png");
             }
         }
+
         if (thingThatWasPressed.equals(farmhouseImage)) {
-            model.addBuildingToSite(1);
-            if (model.isAffordable(model.getEconomicalBuildings().get(1))) {
-                handleEvent(myTestingImageTwo, buildingSite.get(1), "farmHouse.png");
+                if (model.isAffordable(model.getEconomicalBuildings().get(1))) {
+                    model.addBuildingToSite(1);
+                    System.out.println("send to handleEvent method");
+                    handleEvent(myTestingImageTwo, buildingSite.get(1), "farmHouse.png");
+                    System.out.println("Back again");
+                }
             }
-        }
         if (thingThatWasPressed.equals(masonryImage)) {
-            model.addBuildingToSite(2);
             if (model.isAffordable(model.getEconomicalBuildings().get(2))) {
+                model.addBuildingToSite(2);
                 handleEvent(myTestingImageThree, buildingSite.get(2), "bricks.png");
             }
         }
