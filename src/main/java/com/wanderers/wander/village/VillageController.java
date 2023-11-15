@@ -161,10 +161,12 @@ public class VillageController {
     public void mouseAction(MouseEvent event) {
         var thingThatWasPressed = event.getSource();
 
+
         if (buildingSite.contains(thingThatWasPressed)) {
             for (Circle b : buildingSite) {
                 if (b.equals(thingThatWasPressed))
                     buildingChoice.setVisible(!buildingChoice.isVisible());
+
             }
         }
 
