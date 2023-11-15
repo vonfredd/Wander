@@ -80,30 +80,24 @@ public class VillageController {
 
     @FXML
     private void handleEvent(ImageView myImage, Circle circle, String imageName) {
-
-        System.out.println("New one      \n" + myImage +"  \n"+ circle +"  \n" + imageName +" \n");
         int x = (int) circle.getTranslateX();
         int y = (int) circle.getTranslateY();
 
-        // Load image dynamically
         Image image = new Image("/" + imageName);
 
-        // Set the image to the ImageView
         myImage.setImage(image);
         myImage.setX(x);
         myImage.setY(y);
 
-        // Hide the Circle
         circle.setVisible(false);
 
-        // Show the ImageView
         myImage.setVisible(true);
     }
 
     List<Circle> buildingSite;
 
     public void initialize() {
-        Tooltip tooltip = new Tooltip("This cost 100 brick and 20 food");
+        Tooltip tooltip = new Tooltip("This is a tooltip");
         Tooltip.install(farmhouseImage, tooltip);
         myListView.setCellFactory(param -> new EconomicalBuildingsCell());
 
@@ -164,7 +158,6 @@ public class VillageController {
     public void mouseAction(MouseEvent event) {
         var thingThatWasPressed = event.getSource();
 
-
         if (buildingSite.contains(thingThatWasPressed)) {
             for (Circle b : buildingSite) {
                 if (b.equals(thingThatWasPressed))
@@ -172,8 +165,6 @@ public class VillageController {
 
             }
         }
-
-
 
         if (thingThatWasPressed.equals(woodcutterImage)) {
             if (model.isAffordable(model.getEconomicalBuildings().get(0))) {
@@ -183,13 +174,11 @@ public class VillageController {
         }
 
         if (thingThatWasPressed.equals(farmhouseImage)) {
-                if (model.isAffordable(model.getEconomicalBuildings().get(1))) {
-                    model.addBuildingToSite(1);
-                    System.out.println("send to handleEvent method");
-                    handleEvent(myTestingImageTwo, buildingSite.get(1), "farmHouse.png");
-                    System.out.println("Back again");
-                }
+            if (model.isAffordable(model.getEconomicalBuildings().get(1))) {
+                model.addBuildingToSite(1);
+                handleEvent(myTestingImageTwo, buildingSite.get(1), "farmHouse.png");
             }
+        }
         if (thingThatWasPressed.equals(masonryImage)) {
             if (model.isAffordable(model.getEconomicalBuildings().get(2))) {
                 model.addBuildingToSite(2);

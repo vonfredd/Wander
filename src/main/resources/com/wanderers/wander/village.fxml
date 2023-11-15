@@ -47,7 +47,9 @@
             <Circle fx:id="siteThree" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
                     radius="33.0" styleClass="buildSiteCircle" translateX="79.0" translateY="-113.0"/>
             <ImageView fx:id="myTestingImageThree" visible="false" translateX="79.0" translateY="-113.0">
-                <!-- Set image properties here -->
+                <fitWidth>50.0</fitWidth>
+                <fitHeight>50.0</fitHeight>
+                <preserveRatio>true</preserveRatio>
             </ImageView>
 
             <Circle fx:id="siteFour" centerX="100.0" centerY="100.0" fill="#0073e6" onMouseClicked="#mouseAction"
