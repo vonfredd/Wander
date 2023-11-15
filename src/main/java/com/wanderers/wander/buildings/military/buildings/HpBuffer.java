@@ -1,4 +1,4 @@
-package com.wanderers.wander.buildings.military;
+package com.wanderers.wander.buildings.military.buildings;
 
 public abstract class HpBuffer extends Building {
 

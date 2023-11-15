@@ -1,4 +1,4 @@
-package com.wanderers.wander.buildings.military;
+package com.wanderers.wander.buildings.military.buildings;
 
 public class BuildingMaker {
     public static void main(String[] args) {

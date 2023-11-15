@@ -1,7 +1,7 @@
 package com.wanderers.wander.village;
 
 import com.wanderers.wander.buildings.economical.EconomicalBuildings;
-import com.wanderers.wander.buildings.military.Building;
+import com.wanderers.wander.buildings.military.buildings.Building;
 import com.wanderers.wander.buildings.economical.Brick;
 import com.wanderers.wander.buildings.economical.Food;
 import com.wanderers.wander.buildings.economical.Logs;
@@ -123,7 +123,6 @@ public class VillageModel {
     }
 
     public boolean isAffordable(EconomicalBuildings ecoBuilding) {
-
         if (ecoBuilding.getPriceInLumber() <= getEconomicalBuildings().get(0).getCount() &&
                 ecoBuilding.getPriceInFood() <= getEconomicalBuildings().get(1).getCount() &&
                 ecoBuilding.getPriceInBricks() <= getEconomicalBuildings().get(2).getCount()) {

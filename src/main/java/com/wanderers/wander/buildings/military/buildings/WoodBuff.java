@@ -1,4 +1,4 @@
-package com.wanderers.wander.buildings.military;
+package com.wanderers.wander.buildings.military.buildings;
 
 public class WoodBuff extends HpBuffer{
 
