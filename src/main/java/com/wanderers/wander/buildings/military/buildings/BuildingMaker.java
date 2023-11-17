@@ -14,6 +14,5 @@ public class BuildingMaker {
         System.out.println(castle.getName() + " " + castle.hp());
         castle = new StoneBuff(new Castle("Castle"));
         System.out.println(castle.getName() + " " + castle.hp());
-
     }
 }
