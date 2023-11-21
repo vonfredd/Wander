@@ -30,14 +30,14 @@ public class VillageController {
     public Circle siteFive;
     public Circle siteSix;
     public Circle siteSeven;
-    public ImageView myTestingImageTwo;
-    public ImageView myTestingImageThree;
-    public ImageView myTestingImageFour;
-    public ImageView myTestingImageFive;
-    public ImageView myTestingImageSix;
-    public ImageView myTestingImageSeven;
+    public ImageView siteTwoImage;
+    public ImageView siteThreeImage;
+    public ImageView siteFourImage;
+    public ImageView siteFiveImage;
+    public ImageView siteSixImage;
+    public ImageView siteSevenImage;
     @FXML
-    private ImageView myTestingImage;
+    private ImageView siteOneImage;
     @FXML
     private Label farmLogsPrice;
     @FXML
@@ -77,6 +77,9 @@ public class VillageController {
     private ListView<EconomicalBuildings> myListView;
     VillageModel model = new VillageModel();
 
+    int buildSiteIndexRightNow;
+    StringBuilder siteImage;
+
 
     @FXML
     private void handleEvent(ImageView myImage, Circle circle, String imageName) {
@@ -86,15 +89,15 @@ public class VillageController {
         Image image = new Image("/" + imageName);
 
         myImage.setImage(image);
-        myImage.setX(x);
-        myImage.setY(y);
+        myImage.setTranslateX(x);
+        myImage.setTranslateY(y);
 
         circle.setVisible(false);
-
         myImage.setVisible(true);
     }
 
     List<Circle> buildingSite;
+    List<ImageView> imageViews;
 
     public void initialize() {
         Tooltip tooltip = new Tooltip("This is a tooltip");
@@ -111,6 +114,15 @@ public class VillageController {
         buildingSite.add(siteFive);
         buildingSite.add(siteSix);
         buildingSite.add(siteSeven);
+
+        imageViews = new ArrayList<>();
+        imageViews.add(siteOneImage);
+        imageViews.add(siteTwoImage);
+        imageViews.add(siteThreeImage);
+        imageViews.add(siteFourImage);
+        imageViews.add(siteFiveImage);
+        imageViews.add(siteSixImage);
+        imageViews.add(siteSevenImage);
 
         model.startingMaterials();
         myListView.setItems(model.getEconomicalBuildings());
@@ -133,6 +145,7 @@ public class VillageController {
         masonryBrickPrice.textProperty().bind(model.getIconPriceBuildings().get(8));
 
         startingTheTimeline();
+        siteImage = new StringBuilder();
     }
 
 
@@ -155,38 +168,41 @@ public class VillageController {
         myListView.refresh();
     }
 
-    public void buildSiteAction(MouseEvent event){
-        Circle buildSite = (Circle) event.getSource();
-        if (buildingSite.contains(buildSite)) {
-            for (Circle b : buildingSite) {
-                if (b.equals(buildSite))
-                    buildingChoice.setVisible(!buildingChoice.isVisible());
-            }
-        }
-    }
-
     public void mouseAction(MouseEvent event) {
         var thingThatWasPressed = event.getSource();
+
 
         if (thingThatWasPressed.equals(woodcutterImage)) {
             if (model.isAffordable(model.getEconomicalBuildings().get(0))) {
                 model.addBuildingToSite(0);
-                handleEvent(myTestingImage, buildingSite.get(0), "woodcutter.png");
+                handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "woodcutter.png");
             }
         }
 
         if (thingThatWasPressed.equals(farmhouseImage)) {
             if (model.isAffordable(model.getEconomicalBuildings().get(1))) {
                 model.addBuildingToSite(1);
-                handleEvent(myTestingImageTwo, buildingSite.get(1), "farmHouse.png");
+                handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "farmHouse.png");
             }
         }
         if (thingThatWasPressed.equals(masonryImage)) {
             if (model.isAffordable(model.getEconomicalBuildings().get(2))) {
                 model.addBuildingToSite(2);
-                handleEvent(myTestingImageThree, buildingSite.get(2), "bricks.png");
+                handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "bricks.png");
             }
         }
 
+    }
+
+    public void circleAction(MouseEvent event) {
+        siteImage.setLength(0);
+        Circle circle = (Circle) event.getSource();
+        String id = circle.getId();
+        buildingChoice.setVisible(!buildingChoice.isVisible());
+        for (Circle circleSite : buildingSite) {
+            if (circleSite.getId().equals(id))
+                buildSiteIndexRightNow = buildingSite.indexOf(circleSite);
+        }
+        siteImage.append(id).append("Image");
     }
 }
