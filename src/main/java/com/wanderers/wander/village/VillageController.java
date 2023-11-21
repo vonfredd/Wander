@@ -155,16 +155,18 @@ public class VillageController {
         myListView.refresh();
     }
 
-    public void mouseAction(MouseEvent event) {
-        var thingThatWasPressed = event.getSource();
-
-        if (buildingSite.contains(thingThatWasPressed)) {
+    public void buildSiteAction(MouseEvent event){
+        Circle buildSite = (Circle) event.getSource();
+        if (buildingSite.contains(buildSite)) {
             for (Circle b : buildingSite) {
-                if (b.equals(thingThatWasPressed))
+                if (b.equals(buildSite))
                     buildingChoice.setVisible(!buildingChoice.isVisible());
-
             }
         }
+    }
+
+    public void mouseAction(MouseEvent event) {
+        var thingThatWasPressed = event.getSource();
 
         if (thingThatWasPressed.equals(woodcutterImage)) {
             if (model.isAffordable(model.getEconomicalBuildings().get(0))) {
