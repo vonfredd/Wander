@@ -20,6 +20,10 @@ public class VillageModel {
         return iconPriceBuildings;
     }
 
+
+    /*
+        Sets the pricelabel for the buildings ingame.
+     */
     public void setEcoIconPrice() {
         iconPriceBuildings = FXCollections.observableArrayList();
         //Lumber
@@ -37,6 +41,9 @@ public class VillageModel {
 
     }
 
+    /*
+        Starter production buildings
+     */
     public void initializeEcoBuildings() {
         economicalBuildings = FXCollections.observableArrayList();
         economicalBuildings.add(new Logs(1));

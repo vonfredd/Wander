@@ -190,6 +190,9 @@ public class VillageController {
 
     }
 
+    /*
+        When a buildingsite (blue circle) is pressed, the buildingmenu is shown and you are able to construct buildings.
+     */
     public void circleAction(MouseEvent event) {
         siteImage.setLength(0);
         Circle circle = (Circle) event.getSource();
