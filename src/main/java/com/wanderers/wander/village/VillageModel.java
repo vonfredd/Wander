@@ -79,7 +79,6 @@ public class VillageModel {
         this.brickTextCounter.set(bricksTextCounter);
     }
 
-
     public void updateMaterialsCountingLabels() {
         setLogsTextCounter(String.valueOf(getEconomicalBuildings().get(0).getCount()));
         setFoodTextCounter(String.valueOf(getEconomicalBuildings().get(1).getCount()));

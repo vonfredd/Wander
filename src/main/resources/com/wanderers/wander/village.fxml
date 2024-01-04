@@ -17,8 +17,19 @@
     <right>
         <Pane prefHeight="600" prefWidth="240">
             <VBox prefHeight="600" prefWidth="200" style="-fx-background-color: white;">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="216.0" text="PRODUCTION">
+               <font>
+                  <Font name="Fira Code Bold" size="24.0" />
+               </font>
+            </Label>
                 <ListView fx:id="myListView" prefHeight="100.0" prefWidth="200">
                 </ListView>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="205.0" text="MILITARY">
+               <font>
+                  <Font name="Fira Code Bold" size="24.0" />
+               </font>
+            </Label>
+            <ListView prefHeight="200.0" prefWidth="200.0" />
             </VBox>
         </Pane>
     </right>
