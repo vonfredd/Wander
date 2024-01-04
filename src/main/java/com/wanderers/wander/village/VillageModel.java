@@ -91,7 +91,6 @@ public class VillageModel {
             e.produce();
         }
     }
-
     //Use passed object
     public boolean addToSite(EconomicalBuildings eb, int index) {
         int iconIndex = 0;
