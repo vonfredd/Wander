@@ -94,7 +94,12 @@ public class VillageModel {
 
     //Use passed object
     public boolean addToSite(EconomicalBuildings eb, int index) {
-
+        int iconIndex = 0;
+        switch (eb.getNameOfBuilding()) {
+            case "Forester" -> iconIndex = 0;
+            case "Farm" -> iconIndex = 3;
+            case "Masonry" -> iconIndex = 6;
+        }
         if (eb.isAffordable(this.getEconomicalBuildings())) {
             economicalBuildings.get(0).setCount(economicalBuildings.get(0).getCount() - eb.getPriceInLumber());
             economicalBuildings.get(1).setCount(economicalBuildings.get(1).getCount() - eb.getPriceInFood());
@@ -102,9 +107,9 @@ public class VillageModel {
 
             economicalBuildings.get(index).setLevel(eb.getLevel() + 1);
 
-            iconPriceBuildings.get(0).setValue("Logs: " + getEconomicalBuildings().get(index).getPriceInLumber());
-            iconPriceBuildings.get(1).setValue("Food: " + getEconomicalBuildings().get(index).getPriceInFood());
-            iconPriceBuildings.get(2).setValue("Brick: " + getEconomicalBuildings().get(index).getPriceInBricks());
+            iconPriceBuildings.get(iconIndex).setValue("Logs: " + getEconomicalBuildings().get(index).getPriceInLumber());
+            iconPriceBuildings.get(iconIndex + 1).setValue("Food: " + getEconomicalBuildings().get(index).getPriceInFood());
+            iconPriceBuildings.get(iconIndex + 2).setValue("Brick: " + getEconomicalBuildings().get(index).getPriceInBricks());
 
             return true;
         }
@@ -116,6 +121,4 @@ public class VillageModel {
             e.setCount(100);
         }
     }
-
-
 }
