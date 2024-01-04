@@ -7,6 +7,7 @@ import com.wanderers.wander.buildings.economical.Logs;
 import com.wanderers.wander.listviewcellfactory.EconomicalBuildingsCell;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -173,14 +174,18 @@ public class VillageController {
         var thingThatWasPressed = event.getSource();
 
         if (thingThatWasPressed.equals(woodcutterImage)) {
-            if (model.addToSite(new Logs(1), 0)) {
-                handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "woodcutter.png");
-            }
+            Platform.runLater(() -> {
+                if (model.addToSite(new Logs(model.getEconomicalBuildings().get(0).getLevel()), 0)) {
+                    handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "woodcutter.png");
+                }
+            });
         }
         if (thingThatWasPressed.equals(farmhouseImage)) {
-            if (model.addToSite(new Food(1), 1)) {
-                handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "farmHouse.png");
-            }
+            Platform.runLater(() -> {
+                if (model.addToSite(new Food(1), 1)) {
+                    handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "farmHouse.png");
+                }
+            });
         }
         if (thingThatWasPressed.equals(masonryImage)) {
             if (model.addToSite(new Brick(1), 2)) {

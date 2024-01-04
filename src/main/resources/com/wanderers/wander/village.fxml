@@ -16,7 +16,7 @@
 
     <right>
         <Pane prefHeight="600" prefWidth="240">
-            <VBox prefHeight="600" prefWidth="200" style="-fx-background-color: red;">
+            <VBox prefHeight="600" prefWidth="200" style="-fx-background-color: white;">
                 <ListView fx:id="myListView" prefHeight="100.0" prefWidth="200">
                 </ListView>
             </VBox>
@@ -135,7 +135,7 @@
     <left>
 
         <Pane prefHeight="600" prefWidth="240">
-            <GridPane fx:id="buildingChoice" alignment="CENTER" hgap="5.0" prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: lightgrey; " translateX="0.0" translateY="0.0" vgap="5.0" visible="false" BorderPane.alignment="CENTER">
+            <GridPane fx:id="buildingChoice" alignment="CENTER" hgap="5.0" prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: white; " translateX="0.0" translateY="0.0" vgap="5.0" visible="false" BorderPane.alignment="CENTER">
                 <rowConstraints>
                     <RowConstraints />
                     <RowConstraints />
@@ -194,13 +194,13 @@
                     </VBox>
                 </Pane>
 
-                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: grey;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: purple;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
 
-                <Pane minHeight="130.0" prefHeight="109.0" prefWidth="76.0" style="-fx-background-color: pink;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Pane minHeight="130.0" prefHeight="109.0" prefWidth="76.0" style="-fx-background-color: white;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
-                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: orange;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Pane prefHeight="50" prefWidth="50" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                 <Pane prefHeight="50" prefWidth="49.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
