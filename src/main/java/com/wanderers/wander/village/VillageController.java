@@ -174,18 +174,14 @@ public class VillageController {
         var thingThatWasPressed = event.getSource();
 
         if (thingThatWasPressed.equals(woodcutterImage)) {
-            Platform.runLater(() -> {
                 if (model.addToSite(new Logs(model.getEconomicalBuildings().get(0).getLevel()), 0)) {
                     handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "woodcutter.png");
                 }
-            });
         }
         if (thingThatWasPressed.equals(farmhouseImage)) {
-            Platform.runLater(() -> {
                 if (model.addToSite(new Food(1), 1)) {
                     handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "farmHouse.png");
                 }
-            });
         }
         if (thingThatWasPressed.equals(masonryImage)) {
             if (model.addToSite(new Brick(1), 2)) {
