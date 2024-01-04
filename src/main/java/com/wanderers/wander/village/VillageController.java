@@ -1,11 +1,10 @@
 package com.wanderers.wander.village;
 
 import com.wanderers.wander.buildings.economical.EconomicalBuildings;
+import com.wanderers.wander.buildings.economical.Logs;
 import com.wanderers.wander.listviewcellfactory.EconomicalBuildingsCell;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -17,7 +16,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,10 +92,11 @@ public class VillageController {
 
         circle.setVisible(false);
         myImage.setVisible(true);
+        buildingChoice.setVisible(false);
     }
 
-    List<Circle> buildingSite;
-    List<ImageView> imageViews;
+    private List<Circle> buildingSite;
+    private List<ImageView> imageViews;
 
     public void initialize() {
         Tooltip tooltip = new Tooltip("This is a tooltip");
@@ -171,22 +170,25 @@ public class VillageController {
     public void mouseAction(MouseEvent event) {
         var thingThatWasPressed = event.getSource();
 
-
         if (thingThatWasPressed.equals(woodcutterImage)) {
-            if (model.isAffordable(model.getEconomicalBuildings().get(0))) {
+            if (model.getEconomicalBuildings().get(0).isAffordable(model.getEconomicalBuildings())) {
                 model.addBuildingToSite(0);
                 handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "woodcutter.png");
             }
         }
 
+        if (thingThatWasPressed.equals(woodcutterImage)) {
+            model.addToSite(new Logs(1));
+        }
+
         if (thingThatWasPressed.equals(farmhouseImage)) {
-            if (model.isAffordable(model.getEconomicalBuildings().get(1))) {
+            if (model.getEconomicalBuildings().get(1).isAffordable(model.getEconomicalBuildings())) {
                 model.addBuildingToSite(1);
                 handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "farmHouse.png");
             }
         }
         if (thingThatWasPressed.equals(masonryImage)) {
-            if (model.isAffordable(model.getEconomicalBuildings().get(2))) {
+            if (model.getEconomicalBuildings().get(2).isAffordable(model.getEconomicalBuildings())) {
                 model.addBuildingToSite(2);
                 handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "bricks.png");
             }
