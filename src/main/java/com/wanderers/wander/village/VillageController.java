@@ -1,6 +1,8 @@
 package com.wanderers.wander.village;
 
+import com.wanderers.wander.buildings.economical.Brick;
 import com.wanderers.wander.buildings.economical.EconomicalBuildings;
+import com.wanderers.wander.buildings.economical.Food;
 import com.wanderers.wander.buildings.economical.Logs;
 import com.wanderers.wander.listviewcellfactory.EconomicalBuildingsCell;
 import javafx.animation.KeyFrame;
@@ -171,25 +173,17 @@ public class VillageController {
         var thingThatWasPressed = event.getSource();
 
         if (thingThatWasPressed.equals(woodcutterImage)) {
-            if (model.getEconomicalBuildings().get(0).isAffordable(model.getEconomicalBuildings())) {
-                model.addBuildingToSite(0);
+            if (model.addToSite(new Logs(1), 0)) {
                 handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "woodcutter.png");
             }
         }
-
-        if (thingThatWasPressed.equals(woodcutterImage)) {
-            model.addToSite(new Logs(1));
-        }
-
         if (thingThatWasPressed.equals(farmhouseImage)) {
-            if (model.getEconomicalBuildings().get(1).isAffordable(model.getEconomicalBuildings())) {
-                model.addBuildingToSite(1);
+            if (model.addToSite(new Food(1), 1)) {
                 handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "farmHouse.png");
             }
         }
         if (thingThatWasPressed.equals(masonryImage)) {
-            if (model.getEconomicalBuildings().get(2).isAffordable(model.getEconomicalBuildings())) {
-                model.addBuildingToSite(2);
+            if (model.addToSite(new Brick(1), 2)) {
                 handleEvent(imageViews.get(buildSiteIndexRightNow), buildingSite.get(buildSiteIndexRightNow), "bricks.png");
             }
         }

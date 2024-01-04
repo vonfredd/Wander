@@ -1,16 +1,12 @@
 package com.wanderers.wander.village;
 
 import com.wanderers.wander.buildings.economical.EconomicalBuildings;
-import com.wanderers.wander.buildings.military.buildings.Building;
 import com.wanderers.wander.buildings.economical.Brick;
 import com.wanderers.wander.buildings.economical.Food;
 import com.wanderers.wander.buildings.economical.Logs;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class VillageModel {
     private final SimpleStringProperty logsTextCounter = new SimpleStringProperty();
@@ -26,14 +22,15 @@ public class VillageModel {
 
     public void setEcoIconPrice() {
         iconPriceBuildings = FXCollections.observableArrayList();
+        //Lumber
         iconPriceBuildings.add(new SimpleStringProperty("Logs: " + getEconomicalBuildings().get(0).getPriceInLumber()));
         iconPriceBuildings.add(new SimpleStringProperty("Food: " + getEconomicalBuildings().get(0).getPriceInFood()));
         iconPriceBuildings.add(new SimpleStringProperty("Brick: " + getEconomicalBuildings().get(0).getPriceInBricks()));
-
+        //Food
         iconPriceBuildings.add(new SimpleStringProperty("Logs: " + getEconomicalBuildings().get(1).getPriceInLumber()));
         iconPriceBuildings.add(new SimpleStringProperty("Food: " + getEconomicalBuildings().get(1).getPriceInFood()));
         iconPriceBuildings.add(new SimpleStringProperty("Brick: " + getEconomicalBuildings().get(1).getPriceInBricks()));
-
+        //Brick
         iconPriceBuildings.add(new SimpleStringProperty("Logs: " + getEconomicalBuildings().get(2).getPriceInLumber()));
         iconPriceBuildings.add(new SimpleStringProperty("Food: " + getEconomicalBuildings().get(2).getPriceInFood()));
         iconPriceBuildings.add(new SimpleStringProperty("Brick: " + getEconomicalBuildings().get(2).getPriceInBricks()));
@@ -88,50 +85,22 @@ public class VillageModel {
         }
     }
 
-    public void addBuildingToSite(int indexOfBuilding) {
-        var logs = economicalBuildings.get(0);
-        var food = economicalBuildings.get(1);
-        var brick = economicalBuildings.get(2);
-
-        int offsetOne = 0;
-        int offsetTwo = 1;
-        int offsetThree = 2;
-
-        switch (indexOfBuilding) {
-            case 0 -> {
-            }
-            case 1 -> {
-                offsetOne = 3;
-                offsetTwo = 4;
-                offsetThree = 5;
-            }
-            case 2 -> {
-                offsetOne = 6;
-                offsetTwo = 7;
-                offsetThree = 8;
-            }
-        }
-
-        int logsPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInLumber();
-        int foodPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInFood();
-        int brickPrice = getEconomicalBuildings().get(indexOfBuilding).getPriceInBricks();
-        economicalBuildings.get(indexOfBuilding).setLevel(getEconomicalBuildings().get(indexOfBuilding).getLevel() + 1);
-
-        economicalBuildings.get(0).setCount(logs.getCount() - logsPrice);
-        economicalBuildings.get(1).setCount(food.getCount() - foodPrice);
-        economicalBuildings.get(2).setCount(brick.getCount() - brickPrice);
-
-        iconPriceBuildings.get(offsetOne).setValue("Logs: " + getEconomicalBuildings().get(indexOfBuilding).getPriceInLumber());
-        iconPriceBuildings.get(offsetTwo).setValue("Food: " + getEconomicalBuildings().get(indexOfBuilding).getPriceInFood());
-        iconPriceBuildings.get(offsetThree).setValue("Brick: " + getEconomicalBuildings().get(indexOfBuilding).getPriceInBricks());
-
-    }
-
     //Use passed object
-    public void addToSite(EconomicalBuildings eb) {
-        if (eb.isAffordable(this.getEconomicalBuildings())) {
+    public boolean addToSite(EconomicalBuildings eb, int index) {
 
+        if (eb.isAffordable(this.getEconomicalBuildings())) {
+            economicalBuildings.get(index).setLevel(eb.getLevel()+1);
+
+            economicalBuildings.get(0).setCount(economicalBuildings.get(0).getCount() - eb.getPriceInLumber());
+            economicalBuildings.get(1).setCount(economicalBuildings.get(1).getCount() - eb.getPriceInFood());
+            economicalBuildings.get(2).setCount(economicalBuildings.get(2).getCount() - eb.getPriceInBricks());
+
+            iconPriceBuildings.get(0).setValue("Logs: " + getEconomicalBuildings().get(index).getPriceInLumber());
+            iconPriceBuildings.get(1).setValue("Food: " + getEconomicalBuildings().get(index).getPriceInFood());
+            iconPriceBuildings.get(2).setValue("Brick: " + getEconomicalBuildings().get(index).getPriceInBricks());
+            return true;
         }
+        return false;
     }
 
     public void startingMaterials() {
